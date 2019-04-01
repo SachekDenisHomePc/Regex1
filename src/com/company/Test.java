@@ -33,7 +33,11 @@ public class Test
     {
         System.out.println("Введите изначальную строку");
         String string = input.InputLine();
-        regexProcessing.ReplaceWords(string);
+        var strings = regexProcessing.ReplaceWords(string);
+        for(var curString:strings)
+        {
+            System.out.println(curString);
+        }
     }
 
     void SecondQuest()

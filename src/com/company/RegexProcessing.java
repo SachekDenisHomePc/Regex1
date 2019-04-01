@@ -18,11 +18,10 @@ public class RegexProcessing
 
     public String DecodeString(String words)
     {
-        Pattern pattern = Pattern.compile("\\w+");
+        Pattern pattern = Pattern.compile("[а-я,А-Я,a-z,A-Z]+");
         Matcher matcher = pattern.matcher(words);
         while(matcher.find())
         {
-            System.out.println(words.substring(matcher.start(), matcher.end()));
             String tmp = matcher.group();
             String tmpRev = new StringBuilder(tmp).reverse().toString();
             words = words.replaceFirst(tmp,tmpRev);
@@ -34,6 +33,7 @@ public class RegexProcessing
     {
         if (arr.size() == 0) //если все элементы использованы, выводим на консоль получившуюся строку и возвращаемся
         {
+            current = current.substring(1);
             res.add(current);
             return;
         }
